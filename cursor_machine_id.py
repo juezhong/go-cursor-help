@@ -350,6 +350,9 @@ def main():
     log_file = setup_logging()
     logging.info("程序启动")
 
+    # 创建文本资源实例
+    texts = TextResource()
+
     username = os.getenv("USER")
     if not username:
         log_print("错误：无法确定当前用户", Colors.RED)
@@ -398,7 +401,7 @@ def main():
         log_print("\n正在保存配置...", Colors.CYAN)
         save_config(new_config, username)
 
-        log_print(f"{Colors.GREEN}{texts.success_message}{Colors.RESET}", Colors.GREEN)
+        log_print(f"\n{texts.success_message}", Colors.GREEN)
         log_print("\n操作完成！", Colors.GREEN)
 
     except Exception as e:
